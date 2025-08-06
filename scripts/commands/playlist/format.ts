@@ -58,7 +58,7 @@ async function main() {
   for (let filepath of groupedStreams.keys()) {
     const streams = groupedStreams.get(filepath) || []
 
-    if (!streams.length) return
+    if (!streams.length) continue
 
     const playlist = new Playlist(streams, { public: false })
     await storage.save(filepath, playlist.toString())
